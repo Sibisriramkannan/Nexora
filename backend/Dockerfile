@@ -1,25 +1,14 @@
 FROM node:18-alpine
 
-# Install system dependencies
 RUN apk add --no-cache python3 make g++
-
 WORKDIR /app
 
-# Copy package files
+# package.json + lockfile are the dependency contract. npm ci is deterministic and installs automatically.
 COPY package*.json ./
+RUN npm ci --omit=dev && npm cache clean --force
 
-# Install dependencies
-RUN npm ci --only=production
-
-# Copy source code
 COPY . .
-
-# Create logs directory
 RUN mkdir -p logs
 
-# Expose ports
-EXPOSE 8080
-EXPOSE 50051
-
-# Start the application
+EXPOSE 8080 50051
 CMD ["npm", "start"]

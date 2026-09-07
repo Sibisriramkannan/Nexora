@@ -6,9 +6,6 @@ package-lock.json
 yarn.lock
 pnpm-lock.yaml
 
-# Dependency directory
-node_modules/
-
 # Environment
 .env
 .env.local
