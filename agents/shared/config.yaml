@@ -1,0 +1,57 @@
+# ============================================
+# NEXORA AGENT - Master Configuration
+# ============================================
+
+# Agent Identity
+server_id: "agent-01"
+main_server: "https://nexora.yourdomain.com"
+api_key: "your-api-key-here"
+
+# Collection Settings
+interval: 30
+log_level: "info"
+
+# TLS Configuration
+tls:
+  enabled: true
+  cert_file: "/etc/nexora/cert.pem"
+  key_file: "/etc/nexora/key.pem"
+  ca_file: "/etc/nexora/ca.pem"
+
+# Metrics Collection
+metrics:
+  cpu:
+    enabled: true
+    interval: 5
+  memory:
+    enabled: true
+  disk:
+    enabled: true
+    partitions:
+      - "/"
+      - "/home"
+  network:
+    enabled: true
+    interfaces:
+      - "eth0"
+      - "lo"
+  processes:
+    enabled: true
+    top_n: 10
+  custom_metrics:
+    - "system_uptime"
+    - "kernel_version"
+
+# Logging
+logging:
+  file: "/var/log/nexora/agent.log"
+  max_size: "100MB"
+  max_files: 5
+  compression: true
+
+# Health Check
+health_check:
+  enabled: true
+  interval: 60
+  port: 8081
+  endpoint: "/health"

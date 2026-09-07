@@ -1,0 +1,23 @@
+# Nexora Agent Configuration
+server_id: "linux-server-01"
+main_server: "https://nexora.yourdomain.com"
+api_key: "your-api-key-here"
+interval: 30
+log_level: "info"
+
+# TLS Configuration
+tls:
+  enabled: true
+  cert_file: "/etc/nexora/cert.pem"
+  key_file: "/etc/nexora/key.pem"
+
+# Metrics Configuration
+metrics:
+  cpu: true
+  memory: true
+  disk: true
+  network: true
+  processes: true
+  custom_metrics:
+    - system_uptime
+    - kernel_version
