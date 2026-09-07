@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { @apply antialiased; }
+  body { @apply bg-slate-50 text-slate-900 dark:bg-[#080b14] dark:text-slate-100; }
+  button, input, select, textarea { @apply outline-none; }
+  ::selection { @apply bg-indigo-500/30; }
+}
+
+@layer components {
+  .nexora-shell { @apply min-h-screen bg-slate-50 dark:bg-[#080b14]; }
+  .nexora-surface { @apply bg-white border border-slate-200 shadow-sm dark:bg-[#0f1420] dark:border-white/[0.07]; }
+  .nexora-card { @apply rounded-xl bg-white border border-slate-200 shadow-sm dark:bg-[#0f1420] dark:border-white/[0.07]; }
+  .nexora-card-hover { @apply transition-all duration-200 hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-md dark:hover:border-white/[0.12]; }
+  .nexora-input { @apply h-10 rounded-lg border border-slate-200 bg-white px-3 text-sm text-slate-900 placeholder:text-slate-400 transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/15 dark:border-white/[0.08] dark:bg-[#0b101a] dark:text-slate-100 dark:placeholder:text-slate-500; }
+  .nexora-btn { @apply inline-flex h-9 items-center justify-center gap-2 rounded-lg px-3 text-sm font-medium transition active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50; }
+  .nexora-btn-primary { @apply nexora-btn bg-indigo-600 text-white shadow-sm hover:bg-indigo-500; }
+  .nexora-btn-secondary { @apply nexora-btn border border-slate-200 bg-white text-slate-700 hover:bg-slate-50 dark:border-white/[0.08] dark:bg-[#111827] dark:text-slate-200 dark:hover:bg-white/[0.05]; }
+  .nexora-btn-ghost { @apply nexora-btn text-slate-600 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-white/[0.05]; }
+  .nexora-btn-danger { @apply nexora-btn bg-red-600 text-white hover:bg-red-500; }
+  .nexora-kicker { @apply text-[11px] font-semibold uppercase tracking-[0.12em] text-slate-500 dark:text-slate-500; }
+  .nexora-page-title { @apply text-2xl font-semibold tracking-tight text-slate-950 dark:text-white md:text-[28px]; }
+  .nexora-page-subtitle { @apply mt-1 text-sm text-slate-500 dark:text-slate-400; }
+  .status-dot { @apply inline-block h-2 w-2 rounded-full; }
+  .status-online { @apply bg-emerald-500; }
+  .status-warning { @apply bg-amber-500; }
+  .status-offline { @apply bg-red-500; }
+  .status-unknown { @apply bg-slate-400; }
+  .status-badge { @apply inline-flex items-center gap-1.5 rounded-full border px-2 py-0.5 text-xs font-medium; }
+  .status-badge-online { @apply border-emerald-500/20 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400; }
+  .status-badge-warning { @apply border-amber-500/20 bg-amber-500/10 text-amber-600 dark:text-amber-400; }
+  .status-badge-offline { @apply border-red-500/20 bg-red-500/10 text-red-600 dark:text-red-400; }
+  .status-badge-neutral { @apply border-slate-300 bg-slate-100 text-slate-600 dark:border-white/[0.08] dark:bg-white/[0.04] dark:text-slate-400; }
+  .glass-card { @apply nexora-card; }
+  .glass-card-dark { @apply nexora-card; }
+  .ios-button { @apply nexora-btn; }
+  .ios-button-primary { @apply nexora-btn-primary; }
+  .ios-button-secondary { @apply nexora-btn-secondary; }
+  .ios-button-danger { @apply nexora-btn-danger; }
+  .ios-button-success { @apply nexora-btn bg-emerald-600 text-white hover:bg-emerald-500; }
+  .scrollbar-thin::-webkit-scrollbar { width: 5px; height: 5px; }
+  .scrollbar-thin::-webkit-scrollbar-track { background: transparent; }
+  .scrollbar-thin::-webkit-scrollbar-thumb { @apply rounded-full bg-slate-300 dark:bg-white/10; }
+}
+
+@keyframes pulse-soft { 0%, 100% { opacity: 1; } 50% { opacity: .55; } }
+.pulse-soft { animation: pulse-soft 2s ease-in-out infinite; }
+
+@keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+.shimmer { background: linear-gradient(90deg, transparent, rgba(148,163,184,.12), transparent); background-size: 200% 100%; animation: shimmer 2s infinite; }

@@ -1,0 +1,17 @@
+@import './tailwind.css';
+@import './animations.css';
+
+* { @apply box-border; }
+html, body, #root { min-height: 100%; }
+body { @apply m-0 font-sans antialiased; }
+
+/* Prevent horizontal layout jumps in dense enterprise screens. */
+button, a, input, select, textarea { -webkit-tap-highlight-color: transparent; }
+
+.Toastify__toast { @apply rounded-xl border border-slate-200 bg-white text-slate-800 shadow-xl dark:border-white/[0.08] dark:bg-[#111827] dark:text-slate-100; }
+.Toastify__toast--success { @apply border-emerald-500/20; }
+.Toastify__toast--error { @apply border-red-500/20; }
+.Toastify__toast--warning { @apply border-amber-500/20; }
+.Toastify__toast--info { @apply border-indigo-500/20; }
+
+.skeleton { @apply animate-pulse rounded-lg bg-slate-200 dark:bg-white/[0.06]; }
